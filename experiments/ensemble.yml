@@ -1,0 +1,35 @@
+SOLVER:
+  TRAIN:
+    MAX_EPOCH: 30
+    BATCH_SIZE: 1
+    SAVE_INTERVAL: 5
+  VAL:
+    VAL_INTERVAL: 5
+  
+MODEL:
+  USE_LOCAL: True
+  ENCODE_LOCAL_TEMPORAL: True
+
+ENSEMBLE:
+  EXPERIMENT_LIST: [
+    "high_fps_all",
+    "local_temp_all",
+    "local_temp_all_e30"
+  ]
+
+DATA:
+  FPS: 3
+  MAX_OUTPUT_TOKENS: 1024
+  TRAIN_DATASETS: [
+    { "name": "wts_train_main", "ratio": -1 },
+    { "name": "wts_train_external", "ratio": -1 },
+    { "name": "wts_val_external", "ratio": -1 },
+    { "name": "wts_val_main", "ratio": -1 },
+    { "name": "wts_train_normal", "ratio": -1 },
+    { "name": "wts_val_normal", "ratio": -1 },
+  ]
+  TEST_DATASETS: [
+    # { "name": "wts_test_main", "ratio": -1 },
+    # { "name": "wts_test_normal", "ratio": -1},
+    { "name": "wts_test_external", "ratio": -1},
+  ]
